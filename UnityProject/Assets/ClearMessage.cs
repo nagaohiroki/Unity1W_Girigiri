@@ -8,6 +8,6 @@ public class ClearMessage : MonoBehaviour
 		{
 			return;
 		}
-		dog.Clear();
+		dog.StageClear();
 	}
 }
