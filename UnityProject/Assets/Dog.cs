@@ -39,6 +39,10 @@ public class Dog : MonoBehaviour
 	// ------------------------------------------------------------------------
 	public void StageClear()
 	{
+		if(mClearMessage.gameObject.activeSelf)
+		{
+			return;
+		}
 		mClearMessage.gameObject.SetActive(true);
 		mTimer.IsStop = true;
 		++mCurrentStage;
