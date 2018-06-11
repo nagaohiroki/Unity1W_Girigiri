@@ -14,12 +14,6 @@ public class Dog : MonoBehaviour
 	// カメラのハンドル
 	[SerializeField]
 	GameObject mCameraHandle;
-	// 頭質点位置
-	[SerializeField]
-	GameObject mHead;
-	// お尻質点位置
-	[SerializeField]
-	GameObject mTail;
 	// クリアのメッセージ
 	[SerializeField]
 	Text mClearMessage;
@@ -74,7 +68,7 @@ public class Dog : MonoBehaviour
 		}
 	}
 	// ------------------------------------------------------------------------
-	/// @brief 回転
+	/// @brief 操作
 	///
 	/// @param inPower
 	// ------------------------------------------------------------------------
@@ -83,14 +77,12 @@ public class Dog : MonoBehaviour
 		// 左回転
 		if(Input.GetKeyDown(KeyCode.LeftArrow))
 		{
-			AddForce(mHead, inPower);
-			AddForce(mTail, -inPower);
+			AddTorque(inPower);
 		}
 		// 右回転
 		if(Input.GetKeyDown(KeyCode.RightArrow))
 		{
-			AddForce(mHead, -inPower);
-			AddForce(mTail, inPower);
+			AddTorque(-inPower);
 		}
 		// 再スタート
 		if(Input.GetKeyDown(KeyCode.R))
@@ -99,15 +91,13 @@ public class Dog : MonoBehaviour
 		}
 	}
 	// ------------------------------------------------------------------------
-	/// @brief オブジェクト正面にAddForce
+	/// @brief 回転
 	///
-	/// @param inGameObject
 	/// @param inPower
 	// ------------------------------------------------------------------------
-	void AddForce(GameObject inGameObject, float inPower)
+	void AddTorque(float inPower)
 	{
-		var trans = inGameObject.transform;
-		mRigidbody.AddForceAtPosition(trans.forward * inPower, trans.position, ForceMode.VelocityChange);
+		mRigidbody.AddTorque(Vector3.forward * inPower, ForceMode.VelocityChange);
 	}
 	// ------------------------------------------------------------------------
 	/// @brief 初回更新
