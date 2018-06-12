@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class ClearMessage : MonoBehaviour
+public class Home : MonoBehaviour
 {
 	void OnTriggerEnter(Collider inColl)
 	{

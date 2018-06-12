@@ -1,14 +1,13 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class Timer : MonoBehaviour
 {
-	public bool IsStop{private get; set;}
 	[SerializeField]
 	Text mTimer;
 	float mCounter;
 	int mSecond;
+	public bool IsStop{private get; set;}
 	public void Reset()
 	{
 		IsStop = false;
