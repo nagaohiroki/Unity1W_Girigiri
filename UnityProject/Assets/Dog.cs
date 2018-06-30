@@ -44,7 +44,7 @@ public class Dog : MonoBehaviour
 	// ------------------------------------------------------------------------
 	/// @brief 再スタート
 	// ------------------------------------------------------------------------
-	void Restart()
+	public void Restart()
 	{
 		mClearMessage.gameObject.SetActive(false);
 		mTimer.Reset();
@@ -85,7 +85,7 @@ public class Dog : MonoBehaviour
 			AddTorque(-inPower);
 		}
 		// 再スタート
-		if(Input.GetKeyDown(KeyCode.R))
+		if(Input.GetKeyDown(KeyCode.S))
 		{
 			Restart();
 		}
@@ -115,10 +115,5 @@ public class Dog : MonoBehaviour
 		Move(10.0f);
 		// カメラ移動
 		mCameraHandle.transform.position = transform.position;
-		// 死亡判定
-		if(transform.position.y < -50.0f)
-		{
-			Restart();
-		}
 	}
 }
