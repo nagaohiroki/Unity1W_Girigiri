@@ -5,6 +5,12 @@ using UnityEngine.UI;
 // ------------------------------------------------------------------------
 public class Dog : MonoBehaviour
 {
+	enum Arrow
+	{
+		None,
+		Left,
+		Right,
+	}
 	// タイマー
 	[SerializeField]
 	Timer mTimer;
@@ -74,13 +80,14 @@ public class Dog : MonoBehaviour
 	// ------------------------------------------------------------------------
 	void Move(float inPower)
 	{
+		Arrow arrow = GetArrow();
 		// 左回転
-		if(Input.GetKeyDown(KeyCode.LeftArrow))
+		if(arrow == Arrow.Left)
 		{
 			AddTorque(inPower);
 		}
 		// 右回転
-		if(Input.GetKeyDown(KeyCode.RightArrow))
+		if(arrow == Arrow.Right)
 		{
 			AddTorque(-inPower);
 		}
@@ -89,6 +96,26 @@ public class Dog : MonoBehaviour
 		{
 			Restart();
 		}
+	}
+	Arrow GetArrow()
+	{
+		if(Input.GetButtonDown("Fire1"))
+		{
+			if(0.0f > Input.mousePosition.x - Screen.width / 2.0f)
+			{
+				return Arrow.Left;
+			}
+			return Arrow.Right;
+		}
+		if(Input.GetKeyDown(KeyCode.RightArrow))
+		{
+			return Arrow.Right;
+		}
+		if(Input.GetKeyDown(KeyCode.LeftArrow))
+		{
+			return Arrow.Left;
+		}
+		return Arrow.None;
 	}
 	// ------------------------------------------------------------------------
 	/// @brief 回転
