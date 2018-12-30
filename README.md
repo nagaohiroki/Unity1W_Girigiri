@@ -2,8 +2,11 @@
 
 ![dog](Dog.png)
 
-UnityRoomで公開してます  
+unityroom
 https://unityroom.com/games/homedog
+
+github.io
+https://nagaohiroki.github.io/Unity1W_Girigiri/
 
 概要
 ---
