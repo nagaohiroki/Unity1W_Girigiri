@@ -1,6 +1,6 @@
 ﻿# Unity1W_Girigiri
 
-![dog](Dog.png)
+![dog](icon.png)
 
 unityroom
 https://unityroom.com/games/homedog

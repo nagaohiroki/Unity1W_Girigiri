@@ -13,25 +13,25 @@ public class Dog : MonoBehaviour
 	}
 	// タイマー
 	[SerializeField]
-	Timer mTimer;
+	Timer mTimer = null;
 	// 剛体キャッシュ
 	[SerializeField]
-	Rigidbody mRigidbody;
+	Rigidbody mRigidbody = null;
 	// カメラのハンドル
 	[SerializeField]
-	GameObject mCameraHandle;
+	GameObject mCameraHandle = null;
 	// クリアのメッセージ
 	[SerializeField]
-	Text mClearMessage;
+	Text mClearMessage = null;
 	// スタート位置
 	[SerializeField]
-	GameObject mPlayerStart;
+	GameObject mPlayerStart = null;
 	// 今のステージ
 	[SerializeField]
-	int mCurrentStage;
+	int mCurrentStage = 0;
 	// ステージ
 	[SerializeField]
-	GameObject[] mStages;
+	GameObject[] mStages = null;
 	// ------------------------------------------------------------------------
 	/// @brief ステージクリア
 	///

@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
 	[SerializeField]
-	Text mTimer;
-	float mCounter;
-	int mSecond;
+	Text mTimer = null;
+	float mCounter = 0.0f;
+	int mSecond = 0;
 	public bool IsStop{private get; set;}
 	public void Reset()
 	{
