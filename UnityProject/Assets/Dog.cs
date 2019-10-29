@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 // ------------------------------------------------------------------------
 /// @brief 犬
 // ------------------------------------------------------------------------
@@ -43,12 +44,7 @@ public class Dog : MonoBehaviour
 	// ------------------------------------------------------------------------
 	public void Restart()
 	{
-		mClearMessage.gameObject.SetActive(false);
-		mTimer.Reset();
-		mRigidbody.Sleep();
-		mRigidbody.MovePosition(mPlayerStart.transform.position);
-		mRigidbody.MoveRotation(mPlayerStart.transform.rotation);
-		UpdateStage();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 	// ------------------------------------------------------------------------
 	/// @brief ステージを変える
@@ -63,13 +59,6 @@ public class Dog : MonoBehaviour
 		{
 			mStages[i].gameObject.SetActive(i == mCurrentStage);
 		}
-	}
-	// ------------------------------------------------------------------------
-	/// @brief 初回更新
-	// ------------------------------------------------------------------------
-	void Start()
-	{
-		Restart();
 	}
 	// ------------------------------------------------------------------------
 	/// @brief 更新
