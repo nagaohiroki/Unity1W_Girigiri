@@ -15,15 +15,6 @@ public class Dog : MonoBehaviour
 	// クリアのメッセージ
 	[SerializeField]
 	Text mClearMessage = null;
-	// スタート位置
-	[SerializeField]
-	GameObject mPlayerStart = null;
-	// 今のステージ
-	[SerializeField]
-	int mCurrentStage = 0;
-	// ステージ
-	[SerializeField]
-	GameObject[] mStages = null;
 	// ------------------------------------------------------------------------
 	/// @brief ステージクリア
 	///
@@ -37,7 +28,6 @@ public class Dog : MonoBehaviour
 		}
 		mClearMessage.gameObject.SetActive(true);
 		mTimer.IsStop = true;
-		++mCurrentStage;
 	}
 	// ------------------------------------------------------------------------
 	/// @brief 再スタート
@@ -45,20 +35,6 @@ public class Dog : MonoBehaviour
 	public void Restart()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-	}
-	// ------------------------------------------------------------------------
-	/// @brief ステージを変える
-	// ------------------------------------------------------------------------
-	void UpdateStage()
-	{
-		if(mCurrentStage < 0 || mCurrentStage >= mStages.Length)
-		{
-			mCurrentStage = 0;
-		}
-		for(int i = 0; i < mStages.Length; ++i)
-		{
-			mStages[i].gameObject.SetActive(i == mCurrentStage);
-		}
 	}
 	// ------------------------------------------------------------------------
 	/// @brief 更新
